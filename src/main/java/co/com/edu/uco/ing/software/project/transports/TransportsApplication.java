@@ -1,4 +1,4 @@
-package co.com.edu.uco.ing.software.project.transports.transports;
+package co.com.edu.uco.ing.software.project.transports;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
