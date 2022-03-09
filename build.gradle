@@ -2,7 +2,17 @@ plugins {
 	id 'org.springframework.boot' version '2.6.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'jacoco'
 	id "org.sonarqube" version "3.3"
+	id "org.owasp.dependencycheck" version "6.5.3"
+}
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "ldjorge88_transport"
+		property "sonar.organization", "ldjorge88"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
 }
 
 group = 'co.com.edu.uco.ing.software.project.transports'
@@ -20,22 +30,31 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation ('org.springframework.boot:spring-boot-starter-web') {
+		exclude module: 'spring-boot-starter-tomcat'
+	}
+	implementation 'org.springframework.boot:spring-boot-starter-undertow'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'com.h2database:h2:2.1.210'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'com.h2database:h2:2.1.210'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
 }
 
-sonarqube {
-	properties {
-		property "sonar.projectKey", "ldjorge88_transport"
-		property "sonar.organization", "ldjorge88"
-		property "sonar.host.url", "https://sonarcloud.io"
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		html.enabled true
 	}
+	additionalSourceDirs files("aplicacion/src/main/java")
+	additionalClassDirs files("aplicacion/build/classes/java/main")
 }
