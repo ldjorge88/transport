@@ -20,7 +20,15 @@ public class OwnerTest {
     String phone = "3217187437";
     String licensePlate = "HOT435";
     //act
-    Owner owner = Owner.ownerBuilder(document, documentType, firstName, lastName, email, city, rut, phone, licensePlate);
+    Owner owner = Owner.ownerBuilder(document, documentType)
+        .setFirstName(firstName)
+        .setLastName(lastName)
+        .setEmail(email)
+        .setCity(city)
+        .setRut(rut)
+        .setPhone(phone)
+        .setLicensePlate(licensePlate);
+
     //assert
     Assertions.assertEquals(12345, owner.getDocument());
     Assertions.assertEquals("2", owner.getDocumentType());
