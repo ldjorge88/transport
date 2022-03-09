@@ -2,6 +2,7 @@ package co.com.edu.uco.ing.software.project.transports.domain.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static co.com.edu.uco.ing.software.project.transports.domain.model.util.Message.REQUIRED_FIELD_NULL_EMPTY;
 
 public class OwnerTest {
@@ -18,9 +19,9 @@ public class OwnerTest {
     String rut = "1233248";
     String phone = "3217187437";
     String licensePlate = "HOT435";
-
-    Owner owner = Owner.of(document, documentType, firstName, lastName, email, city, rut, phone, licensePlate);
-
+    //act
+    Owner owner = Owner.ownerBuilder(document, documentType, firstName, lastName, email, city, rut, phone, licensePlate);
+    //assert
     Assertions.assertEquals(12345, owner.getDocument());
     Assertions.assertEquals("2", owner.getDocumentType());
     Assertions.assertEquals("Jorge", owner.getFirstName());
@@ -39,8 +40,8 @@ public class OwnerTest {
     int document = 12345;
     String documentType = null;
 
-    Assertions.assertEquals(REQUIRED_FIELD_NULL_EMPTY,Assertions.assertThrows(IllegalArgumentException.class, () ->
-        Owner.of(document, documentType)
+    Assertions.assertEquals(REQUIRED_FIELD_NULL_EMPTY, Assertions.assertThrows(IllegalArgumentException.class, () ->
+        Owner.ownerBuilder(document, documentType)
     ).getMessage());
 
   }
@@ -51,8 +52,8 @@ public class OwnerTest {
     int document = 12345;
     String documentType = "";
 
-    Assertions.assertEquals(REQUIRED_FIELD_NULL_EMPTY,Assertions.assertThrows(IllegalArgumentException.class, () ->
-        Owner.of(document, documentType)
+    Assertions.assertEquals(REQUIRED_FIELD_NULL_EMPTY, Assertions.assertThrows(IllegalArgumentException.class, () ->
+        Owner.ownerBuilder(document, documentType)
     ).getMessage());
 
   }

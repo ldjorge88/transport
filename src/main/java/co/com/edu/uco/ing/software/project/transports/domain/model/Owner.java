@@ -2,6 +2,7 @@ package co.com.edu.uco.ing.software.project.transports.domain.model;
 
 import static co.com.edu.uco.ing.software.project.transports.domain.util.Message.REQUIRED_FIELD_NULL_EMPTY;
 import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.validateObjectRequired;
+import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.emailValidator;
 
 public class Owner {
 
@@ -33,8 +34,8 @@ public class Owner {
     this.licensePlate = licensePlate;
   }
 
-  public static Owner of(int document, String documentType, String firstName, String lastName, String email,
-                         String city, String rut, String phone, String licensePlate) {
+ /* public static Owner ownerBuilder(int document, String documentType, String firstName, String lastName, String email,
+                                   String city, String rut, String phone, String licensePlate) {
 
       validateObjectRequired(document, REQUIRED_FIELD_NULL_EMPTY);
       validateObjectRequired(documentType, REQUIRED_FIELD_NULL_EMPTY);
@@ -48,8 +49,8 @@ public class Owner {
 
     return new Owner(document, documentType, firstName, lastName, email, city, rut, phone, licensePlate);
   }
-
-  public static Owner of(int document, String documentType) {
+*/
+  public static Owner ownerBuilder(int document, String documentType) {
 
     validateObjectRequired(document, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(documentType, REQUIRED_FIELD_NULL_EMPTY);
@@ -103,6 +104,7 @@ public class Owner {
 
   public Owner setEmail(String email) {
     validateObjectRequired(email, REQUIRED_FIELD_NULL_EMPTY);
+    emailValidator(email);
     this.email = email;
     return this;
   }

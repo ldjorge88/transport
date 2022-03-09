@@ -17,9 +17,15 @@ public class ApplicationSaveOwmerService {
 
   public OwnerResponseDTO execute(OwnerDTO ownerDTO) {
 
-    Owner owner = Owner.of(ownerDTO.getDocument(), ownerDTO.getDocumentType(), ownerDTO.getFirstName(), ownerDTO.getLastName(), ownerDTO.getEmail(),
-        ownerDTO.getCity(), ownerDTO.getRut(), ownerDTO.getPhone(), ownerDTO.getLicensePlate());
-
+    Owner owner = Owner.ownerBuilder(ownerDTO.getDocument(), ownerDTO.getDocumentType())
+        .setFirstName(ownerDTO.getFirstName())
+        .setLastName(ownerDTO.getLastName())
+        .setEmail(ownerDTO.getEmail())
+        .setCity(ownerDTO.getCity())
+        .setRut(ownerDTO.getRut())
+        .setPhone(ownerDTO.getPhone())
+        .setLicensePlate(ownerDTO.getLicensePlate());
+    
     return new OwnerResponseDTO<>(this.saveOwnerService.execute(owner));
 
   }
