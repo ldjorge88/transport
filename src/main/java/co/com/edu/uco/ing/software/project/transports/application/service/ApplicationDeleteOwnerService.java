@@ -17,8 +17,7 @@ public class ApplicationDeleteOwnerService {
 
   public OwnerResponseDTO execute(OwnerDTO ownerDTO) {
 
-    Owner owner = Owner.ownerBuilder(ownerDTO.getDocument(), ownerDTO.getDocumentType(), ownerDTO.getFirstName(), ownerDTO.getLastName(), ownerDTO.getEmail(),
-        ownerDTO.getCity(), ownerDTO.getRut(), ownerDTO.getPhone(), ownerDTO.getLicensePlate(), false);
+    Owner owner = Owner.of(ownerDTO.getDocument(), ownerDTO.getDocumentType());
 
     return new OwnerResponseDTO<>(deleteOwnerService.execute(owner));
   }

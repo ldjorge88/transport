@@ -27,8 +27,8 @@ public class OwnerMysqlRepository implements OwnerRepository {
     return owners.stream().
         map(ownerEntity -> {
           log.info("cargando info desde base de datos: document: [{}] - firstname: [{}]", ownerEntity.getDocument(), ownerEntity.getFirstName());
-          return Owner.ownerBuilder(ownerEntity.getDocument(), ownerEntity.getDocumentType(), ownerEntity.getFirstName(), ownerEntity.getLastName(),
-              ownerEntity.getEmail(), ownerEntity.getCity(), ownerEntity.getRut(), ownerEntity.getPhone(), ownerEntity.getLicensePlate(), false);
+          return Owner.of(ownerEntity.getDocument(), ownerEntity.getDocumentType(), ownerEntity.getFirstName(), ownerEntity.getLastName(),
+              ownerEntity.getEmail(), ownerEntity.getCity(), ownerEntity.getRut(), ownerEntity.getPhone(), ownerEntity.getLicensePlate());
         })
         .toList();
   }
@@ -36,8 +36,7 @@ public class OwnerMysqlRepository implements OwnerRepository {
   @Override
   public Owner findByDocument(int id) {
     return ownerJpaRepository.findByDocument(id)
-        .map(ownerEntity -> Owner.ownerBuilder(ownerEntity.getDocument(), ownerEntity.getDocumentType(), ownerEntity.getFirstName(), ownerEntity.getLastName(),
-            ownerEntity.getEmail(), ownerEntity.getCity(), ownerEntity.getRut(), ownerEntity.getPhone(), ownerEntity.getLicensePlate(), false))
+        .map(ownerEntity -> Owner.of(ownerEntity.getDocument(), ownerEntity.getDocumentType()))
         .orElse(null);
   }
 
