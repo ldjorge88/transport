@@ -27,8 +27,8 @@ public class OwnerController {
   }
 
   @GetMapping
-  public OwnerResponseDTO list() {
-    return new OwnerResponseDTO<>(applicationListOwnerService.execute());
+  public Object list() {
+    return applicationListOwnerService.execute();
   }
 
   @GetMapping(params = "documentId")

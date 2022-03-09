@@ -27,7 +27,8 @@ public class OwnerTest {
         .setCity(city)
         .setRut(rut)
         .setPhone(phone)
-        .setLicensePlate(licensePlate);
+        .setLicensePlate(licensePlate)
+        .build();
 
     //assert
     Assertions.assertEquals(12345, owner.getDocument());

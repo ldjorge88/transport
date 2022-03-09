@@ -1,8 +1,8 @@
 package co.com.edu.uco.ing.software.project.transports.domain.model;
 
 import static co.com.edu.uco.ing.software.project.transports.domain.util.Message.REQUIRED_FIELD_NULL_EMPTY;
-import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.validateObjectRequired;
 import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.emailValidator;
+import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.validateObjectRequired;
 
 public class Owner {
 
@@ -17,39 +17,24 @@ public class Owner {
   private String firstName;
 
   private Owner(int document, String documentType) {
-    this.document = document;
-    this.documentType = documentType;
+    setDocument(document);
+    setDocumentType(documentType);
   }
 
-  private Owner(int document, String documentType, String firstName, String lastName, String email,
-                String city, String rut, String phone, String licensePlate) {
-    this.document = document;
-    this.documentType = documentType;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.city = city;
-    this.rut = rut;
-    this.phone = phone;
-    this.licensePlate = licensePlate;
+  public static void validateOwner(Owner owner) {
+
+    validateObjectRequired(owner.document, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.documentType, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.firstName, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.lastName, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.email, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.city, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.rut, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.phone, REQUIRED_FIELD_NULL_EMPTY);
+    validateObjectRequired(owner.licensePlate, REQUIRED_FIELD_NULL_EMPTY);
+
   }
 
- /* public static Owner ownerBuilder(int document, String documentType, String firstName, String lastName, String email,
-                                   String city, String rut, String phone, String licensePlate) {
-
-      validateObjectRequired(document, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(documentType, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(firstName, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(lastName, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(email, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(city, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(rut, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(phone, REQUIRED_FIELD_NULL_EMPTY);
-      validateObjectRequired(licensePlate, REQUIRED_FIELD_NULL_EMPTY);
-
-    return new Owner(document, documentType, firstName, lastName, email, city, rut, phone, licensePlate);
-  }
-*/
   public static Owner ownerBuilder(int document, String documentType) {
 
     validateObjectRequired(document, REQUIRED_FIELD_NULL_EMPTY);
@@ -146,6 +131,11 @@ public class Owner {
   public Owner setLicensePlate(String licensePlate) {
     validateObjectRequired(licensePlate, REQUIRED_FIELD_NULL_EMPTY);
     this.licensePlate = licensePlate;
+    return this;
+  }
+
+  public Owner build() {
+    validateOwner(this);
     return this;
   }
 }

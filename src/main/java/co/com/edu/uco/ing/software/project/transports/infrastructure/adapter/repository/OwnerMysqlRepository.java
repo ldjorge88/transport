@@ -43,7 +43,13 @@ public class OwnerMysqlRepository implements OwnerRepository {
   @Override
   public Owner findByDocument(int id) {
     return ownerJpaRepository.findByDocument(id)
-        .map(ownerEntity -> Owner.ownerBuilder(ownerEntity.getDocument(), ownerEntity.getDocumentType()))
+        .map(ownerEntity -> Owner.ownerBuilder(ownerEntity.getDocument(), ownerEntity.getDocumentType())
+            .setFirstName(ownerEntity.getFirstName())
+            .setLastName(ownerEntity.getLastName())
+            .setEmail(ownerEntity.getEmail())
+            .setCity(ownerEntity.getCity())
+            .setPhone(ownerEntity.getPhone())
+            .setLicensePlate(ownerEntity.getLicensePlate()))
         .orElse(null);
   }
 
