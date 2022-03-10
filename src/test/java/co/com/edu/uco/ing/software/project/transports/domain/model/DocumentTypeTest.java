@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class DocumentTypeTest {
 
-  @Test
+  //@Test
   void validateSuccesfulCreation(){
 
   }
