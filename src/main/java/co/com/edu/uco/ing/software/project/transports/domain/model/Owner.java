@@ -33,7 +33,6 @@ public class Owner {
     validateObjectRequired(owner.phone, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.licensePlate, REQUIRED_FIELD_NULL_EMPTY);
 
-
   }
 
   public static Owner ownerBuilder(int document, String documentType) {
