@@ -1,6 +1,5 @@
 package co.com.edu.uco.ing.software.project.transports.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
