@@ -12,12 +12,12 @@ import org.springframework.util.ObjectUtils;
 import java.util.List;
 
 @Repository
-public class OwnerImplRepository implements OwnerRepository {
+public class OwnerRepositoryImpl implements OwnerRepository {
 
-  private static final Logger log = LoggerFactory.getLogger(OwnerImplRepository.class);
+  private static final Logger log = LoggerFactory.getLogger(OwnerRepositoryImpl.class);
   private final OwnerJpaRepository ownerJpaRepository;
 
-  public OwnerImplRepository(OwnerJpaRepository ownerJpaRepository) {
+  public OwnerRepositoryImpl(OwnerJpaRepository ownerJpaRepository) {
     this.ownerJpaRepository = ownerJpaRepository;
   }
 

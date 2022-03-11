@@ -1,6 +1,5 @@
 package co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.repository;
 
-import co.com.edu.uco.ing.software.project.transports.application.converter.DocumentTypeMapper;
 import co.com.edu.uco.ing.software.project.transports.domain.model.DocumentType;
 import co.com.edu.uco.ing.software.project.transports.domain.port.DocumentTypeRepository;
 import co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.entity.DocumentTypeEntity;
@@ -8,14 +7,16 @@ import co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.rep
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
+
 import static co.com.edu.uco.ing.software.project.transports.application.converter.DocumentTypeMapper.DOCUMENT_TYPE_MAPPER;
 
 @RequiredArgsConstructor
 @Slf4j
 @Repository
-public class DocumentTypeImplRepository implements DocumentTypeRepository {
+public class DocumentTypeRepositoryImpl implements DocumentTypeRepository {
 
   private final DocumentTypeJpaRepository documentTypeJpaRepository;
 
@@ -30,7 +31,8 @@ public class DocumentTypeImplRepository implements DocumentTypeRepository {
   }
 
   @Override
-  public DocumentType findByName(String code) {
+  public DocumentType findByName(
+      String code) {
     return null;
   }
 
@@ -42,7 +44,8 @@ public class DocumentTypeImplRepository implements DocumentTypeRepository {
 
   @Override
   public boolean exists(DocumentType documentType) {
-    return false;
+    DocumentTypeEntity documentTypeEntity = DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType);
+    return !ObjectUtils.isEmpty(documentTypeJpaRepository.findDocumentTypeEntityByCode(documentTypeEntity.getCode()));
   }
 
   @Override
