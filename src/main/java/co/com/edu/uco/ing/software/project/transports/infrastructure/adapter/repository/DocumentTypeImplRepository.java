@@ -2,15 +2,20 @@ package co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.re
 
 import co.com.edu.uco.ing.software.project.transports.domain.model.DocumentType;
 import co.com.edu.uco.ing.software.project.transports.domain.port.DocumentTypeRepository;
+import co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.entity.DocumentTypeEntity;
+import co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.repository.jpa.DocumentTypeJpaRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Slf4j
 @Repository
 public class DocumentTypeImplRepository implements DocumentTypeRepository {
 
+  private final DocumentTypeJpaRepository documentTypeJpaRepository;
 
   @Override
   public List<DocumentType> findAll() {
@@ -29,7 +34,12 @@ public class DocumentTypeImplRepository implements DocumentTypeRepository {
 
   @Override
   public Long save(DocumentType documentType) {
-    return null;
+    DocumentTypeEntity documentTypeEntity = DocumentTypeEntity.builder()
+        .code(documentType.getCode())
+        .name(documentType.getName())
+        .description(documentType.getDescription())
+        .build();
+    return this.documentTypeJpaRepository.save(documentTypeEntity).getId();
   }
 
   @Override

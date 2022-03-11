@@ -15,6 +15,6 @@ public interface DocumentTypeMapper {
   DocumentType documentTypeDTOToDocumentType(DocumentTypeDTO documentTypeDTO);
   DocumentTypeDTO documentTypeToDocumentTypeDTO(DocumentType documentType);
 
-  List<DocumentType> documentTypeDTOToDocumentTypeList(List<DocumentTypeDTO> documentTypeDTO);
-  List<DocumentTypeDTO> documentTypeToDocumentTypeDTOList(List<DocumentType> documentType);
+  List<DocumentType> documentTypeDTOToListDocumentTypeList(List<DocumentTypeDTO> documentTypeDTO);
+  List<DocumentTypeDTO> documentTypeListToDocumentTypeDTOList(List<DocumentType> documentType);
 }

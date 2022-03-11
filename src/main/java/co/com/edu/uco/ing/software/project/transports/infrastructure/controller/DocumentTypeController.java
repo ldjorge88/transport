@@ -19,7 +19,7 @@ public class DocumentTypeController {
 
   @PostMapping
   public void create(@RequestBody DocumentTypeDTO documentTypeDTO) {
-    appSaveDocumentTypeService.test(documentTypeDTO);
+    appSaveDocumentTypeService.create(documentTypeDTO);
   }
 
 }
