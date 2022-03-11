@@ -1,5 +1,6 @@
 package co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.repository;
 
+import co.com.edu.uco.ing.software.project.transports.application.converter.DocumentTypeMapper;
 import co.com.edu.uco.ing.software.project.transports.domain.model.DocumentType;
 import co.com.edu.uco.ing.software.project.transports.domain.port.DocumentTypeRepository;
 import co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.entity.DocumentTypeEntity;
@@ -9,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import static co.com.edu.uco.ing.software.project.transports.application.converter.DocumentTypeMapper.DOCUMENT_TYPE_MAPPER;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -34,12 +36,8 @@ public class DocumentTypeImplRepository implements DocumentTypeRepository {
 
   @Override
   public Long save(DocumentType documentType) {
-    DocumentTypeEntity documentTypeEntity = DocumentTypeEntity.builder()
-        .code(documentType.getCode())
-        .name(documentType.getName())
-        .description(documentType.getDescription())
-        .build();
-    return this.documentTypeJpaRepository.save(documentTypeEntity).getId();
+    DocumentTypeEntity documentTypeEntity = DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType);
+    return documentTypeJpaRepository.save(documentTypeEntity).getId();
   }
 
   @Override

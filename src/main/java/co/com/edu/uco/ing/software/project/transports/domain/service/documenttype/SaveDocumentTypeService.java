@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
-public class DocumentTypeSaveService {
+public class SaveDocumentTypeService {
 
   private static final String EXISTS_MESSAGE = "Ya tipo de documento con los datos ingresados";
   private final DocumentTypeRepository documentTypeRepository;

@@ -8,7 +8,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
 @Entity
 @Table(name = "document_type")
 public class DocumentTypeEntity implements Serializable {

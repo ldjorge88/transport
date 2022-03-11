@@ -11,7 +11,9 @@ import java.io.Serializable;
 @Builder
 public class DocumentTypeDTO implements Serializable {
 
+  @NonNull
   private String code;
+  @NonNull
   private String name;
   private String description;
 
