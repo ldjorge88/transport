@@ -35,8 +35,13 @@ dependencies {
 	}
 	implementation 'org.springframework.boot:spring-boot-starter-undertow'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.projectlombok:lombok:1.18.20'
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	implementation 'org.mapstruct:mapstruct-jdk8:1.2.0.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.2.0.Final'
 	//implementation 'com.h2database:h2:2.1.210'
-	implementation 'org.projectlombok:lombok:1.18.22'
+	//implementation 'org.projectlombok:lombok:1.18.22'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'

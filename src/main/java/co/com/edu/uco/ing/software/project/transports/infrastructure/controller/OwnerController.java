@@ -2,11 +2,10 @@ package co.com.edu.uco.ing.software.project.transports.infrastructure.controller
 
 import co.com.edu.uco.ing.software.project.transports.application.dto.OwnerDTO;
 import co.com.edu.uco.ing.software.project.transports.application.dto.OwnerResponseDTO;
-import co.com.edu.uco.ing.software.project.transports.application.service.ApplicationDeleteOwnerService;
-import co.com.edu.uco.ing.software.project.transports.application.service.ApplicationFindOwnerService;
-import co.com.edu.uco.ing.software.project.transports.application.service.ApplicationListOwnerService;
-import co.com.edu.uco.ing.software.project.transports.application.service.ApplicationSaveOwmerService;
-import org.springframework.data.repository.query.Param;
+import co.com.edu.uco.ing.software.project.transports.application.service.owner.ApplicationDeleteOwnerService;
+import co.com.edu.uco.ing.software.project.transports.application.service.owner.ApplicationFindOwnerService;
+import co.com.edu.uco.ing.software.project.transports.application.service.owner.ApplicationListOwnerService;
+import co.com.edu.uco.ing.software.project.transports.application.service.owner.ApplicationSaveOwmerService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -1,4 +1,4 @@
-package co.com.edu.uco.ing.software.project.transports.application.service;
+package co.com.edu.uco.ing.software.project.transports.application.service.owner;
 
 import co.com.edu.uco.ing.software.project.transports.application.dto.OwnerDTO;
 import co.com.edu.uco.ing.software.project.transports.application.dto.OwnerResponseDTO;
