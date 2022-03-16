@@ -1,6 +1,6 @@
 package co.com.edu.uco.ing.software.project.transports.application.service.owner;
 
-import co.com.edu.uco.ing.software.project.transports.application.converter.ApplicationOwnerConverter;
+import co.com.edu.uco.ing.software.project.transports.application.mapper.ApplicationOwnerConverter;
 import co.com.edu.uco.ing.software.project.transports.application.dto.OwnerDTO;
 import co.com.edu.uco.ing.software.project.transports.domain.model.Owner;
 import co.com.edu.uco.ing.software.project.transports.domain.service.owner.FindOwnerService;

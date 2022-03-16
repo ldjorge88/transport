@@ -1,8 +1,7 @@
 package co.com.edu.uco.ing.software.project.transports.application.service.documenttype;
 
-import static co.com.edu.uco.ing.software.project.transports.application.converter.DocumentTypeMapper.DOCUMENT_TYPE_MAPPER;
+import static co.com.edu.uco.ing.software.project.transports.application.mapper.DocumentTypeMapper.DOCUMENT_TYPE_MAPPER;
 import co.com.edu.uco.ing.software.project.transports.application.dto.DocumentTypeDTO;
-import co.com.edu.uco.ing.software.project.transports.application.exception.TransportBadRequestException;
 import co.com.edu.uco.ing.software.project.transports.domain.model.DocumentType;
 import co.com.edu.uco.ing.software.project.transports.domain.service.documenttype.SaveDocumentTypeService;
 import lombok.RequiredArgsConstructor;

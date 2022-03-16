@@ -11,7 +11,7 @@ import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
-import static co.com.edu.uco.ing.software.project.transports.application.converter.DocumentTypeMapper.DOCUMENT_TYPE_MAPPER;
+import static co.com.edu.uco.ing.software.project.transports.application.mapper.DocumentTypeMapper.DOCUMENT_TYPE_MAPPER;
 
 @RequiredArgsConstructor
 @Slf4j

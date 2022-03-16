@@ -1,4 +1,4 @@
-package co.com.edu.uco.ing.software.project.transports.application.converter;
+package co.com.edu.uco.ing.software.project.transports.application.mapper;
 
 import co.com.edu.uco.ing.software.project.transports.application.dto.OwnerDTO;
 import co.com.edu.uco.ing.software.project.transports.domain.model.Owner;

@@ -1,4 +1,4 @@
-package co.com.edu.uco.ing.software.project.transports.application.converter;
+package co.com.edu.uco.ing.software.project.transports.application.mapper;
 
 import co.com.edu.uco.ing.software.project.transports.application.dto.DocumentTypeDTO;
 import co.com.edu.uco.ing.software.project.transports.domain.model.DocumentType;
@@ -20,4 +20,5 @@ public interface DocumentTypeMapper {
   DocumentTypeEntity documentTypeToDocumentTypeEntity(DocumentType documentType);
   DocumentType documentTypeEntityToDocumentType(DocumentTypeEntity documentTypeEntity);
   List<DocumentType> documentTypeEntityListToDocumentTypeList(List<DocumentTypeEntity> documentTypeEntity);
+  List<DocumentTypeDTO> documentTypeListToDocumentTypeDTOList(List<DocumentType> documentTypeEntity);
 }
