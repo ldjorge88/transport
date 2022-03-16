@@ -7,8 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DocumentTypeJpaRepository extends JpaRepository<DocumentTypeEntity, Long> {
   DocumentTypeEntity findDocumentTypeEntityByCode(String code);
-
-  DocumentTypeEntity findDocumentTypeEntityByCodeAndDescription(String code, String description);
-
-  DocumentTypeEntity findDocumentTypeEntityByDescription(String description);
+  DocumentTypeEntity findDocumentTypeEntityByName(DocumentTypeEntity description);
 }

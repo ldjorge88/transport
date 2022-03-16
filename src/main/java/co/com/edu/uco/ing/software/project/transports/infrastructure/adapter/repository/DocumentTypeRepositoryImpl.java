@@ -22,39 +22,52 @@ public class DocumentTypeRepositoryImpl implements DocumentTypeRepository {
 
   @Override
   public List<DocumentType> findAll() {
-    return null;
+    return DOCUMENT_TYPE_MAPPER.documentTypeEntityListToDocumentTypeList(
+        documentTypeJpaRepository.findAll()
+    );
   }
 
   @Override
   public DocumentType findByCode(String code) {
-    return null;
+    return DOCUMENT_TYPE_MAPPER.documentTypeEntityToDocumentType(
+        documentTypeJpaRepository.findDocumentTypeEntityByCode(code)
+    );
   }
 
   @Override
-  public DocumentType findByName(
-      String code) {
-    return null;
+  public DocumentType findByName(DocumentType code) {
+    return DOCUMENT_TYPE_MAPPER.documentTypeEntityToDocumentType(
+        documentTypeJpaRepository.findDocumentTypeEntityByName(
+            DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(code))
+    );
   }
 
   @Override
   public Long save(DocumentType documentType) {
-    DocumentTypeEntity documentTypeEntity = DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType);
-    return documentTypeJpaRepository.save(documentTypeEntity).getId();
+    return documentTypeJpaRepository.save(
+        DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType)
+    ).getId();
   }
 
   @Override
   public boolean exists(DocumentType documentType) {
-    DocumentTypeEntity documentTypeEntity = DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType);
-    return !ObjectUtils.isEmpty(documentTypeJpaRepository.findDocumentTypeEntityByCode(documentTypeEntity.getCode()));
+    return !ObjectUtils.isEmpty(
+        documentTypeJpaRepository.findDocumentTypeEntityByCode(
+            DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType).getCode())
+    );
   }
 
   @Override
   public Long delete(DocumentType documentType) {
-    return null;
+    DocumentTypeEntity documentTypeEntity = DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType);
+    documentTypeJpaRepository.delete(documentTypeEntity);
+    return documentTypeEntity.getId();
   }
 
   @Override
-  public DocumentType update(DocumentType documentType) {
-    return null;
+  public Long update(DocumentType documentType) {
+    return documentTypeJpaRepository.save(
+        DOCUMENT_TYPE_MAPPER.documentTypeToDocumentTypeEntity(documentType)
+    ).getId();
   }
 }

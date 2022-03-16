@@ -8,10 +8,10 @@ public interface DocumentTypeRepository {
 
   List<DocumentType> findAll();
   DocumentType findByCode(String code);
-  DocumentType findByName(String code);
+  DocumentType findByName(DocumentType code);
   Long save(DocumentType documentType);
   boolean exists(DocumentType documentType);
   Long delete(DocumentType documentType);
-  DocumentType update(DocumentType documentType);
+  Long update(DocumentType documentType);
 
 }

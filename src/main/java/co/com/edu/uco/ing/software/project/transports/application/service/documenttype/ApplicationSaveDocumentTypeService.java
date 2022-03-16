@@ -2,6 +2,7 @@ package co.com.edu.uco.ing.software.project.transports.application.service.docum
 
 import static co.com.edu.uco.ing.software.project.transports.application.converter.DocumentTypeMapper.DOCUMENT_TYPE_MAPPER;
 import co.com.edu.uco.ing.software.project.transports.application.dto.DocumentTypeDTO;
+import co.com.edu.uco.ing.software.project.transports.application.exception.TransportBadRequestException;
 import co.com.edu.uco.ing.software.project.transports.domain.model.DocumentType;
 import co.com.edu.uco.ing.software.project.transports.domain.service.documenttype.SaveDocumentTypeService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class ApplicationSaveDocumentTypeService {
 
   public void execute(DocumentTypeDTO documentTypeDTO) {
     DocumentType documentType = DOCUMENT_TYPE_MAPPER.documentTypeDTOToDocumentType(documentTypeDTO);
-    documentTypeSaveService.create(documentType);
+      documentTypeSaveService.create(documentType);
   }
 
 }

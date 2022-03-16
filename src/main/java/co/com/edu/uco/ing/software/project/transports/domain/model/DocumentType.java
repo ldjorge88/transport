@@ -2,6 +2,7 @@ package co.com.edu.uco.ing.software.project.transports.domain.model;
 
 import lombok.*;
 
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
