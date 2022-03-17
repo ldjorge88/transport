@@ -3,7 +3,7 @@ package co.com.edu.uco.ing.software.project.transports.domain.model;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static co.com.edu.uco.ing.software.project.transports.domain.model.util.Message.REQUIRED_FIELD_NULL_EMPTY;
+import static co.com.edu.uco.ing.software.project.transports.domain.util.Message.REQUIRED_FIELD_NULL_EMPTY;
 
 public class OwnerTest {
 

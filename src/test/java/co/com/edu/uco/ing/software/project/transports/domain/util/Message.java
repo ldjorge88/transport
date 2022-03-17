@@ -1,4 +1,4 @@
-package co.com.edu.uco.ing.software.project.transports.domain.model.util;
+package co.com.edu.uco.ing.software.project.transports.domain.util;
 
 public class Message {
 
