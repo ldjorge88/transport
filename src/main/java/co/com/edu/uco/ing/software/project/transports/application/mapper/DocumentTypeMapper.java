@@ -14,11 +14,17 @@ public interface DocumentTypeMapper {
   DocumentTypeMapper DOCUMENT_TYPE_MAPPER = Mappers.getMapper(DocumentTypeMapper.class);
 
   DocumentType documentTypeDTOToDocumentType(DocumentTypeDTO documentTypeDTO);
+
   DocumentTypeDTO documentTypeToDocumentTypeDTO(DocumentType documentType);
+
   List<DocumentTypeDTO> documentTypeDTOToListDocumentTypeList(List<DocumentType> documentType);
 
+  // TODO profe esto debería de estar en la capa de infraestrucctura por visibilidad de capas ?
   DocumentTypeEntity documentTypeToDocumentTypeEntity(DocumentType documentType);
+
   DocumentType documentTypeEntityToDocumentType(DocumentTypeEntity documentTypeEntity);
-  List<DocumentType> documentTypeEntityListToDocumentTypeList(List<DocumentTypeEntity> documentTypeEntity);
+
+  List<DocumentType> documentTypeEntityListToDocumentTypeList(List<DocumentTypeEntity> documentTypeEntities);
+
   List<DocumentTypeDTO> documentTypeListToDocumentTypeDTOList(List<DocumentType> documentTypeEntity);
 }

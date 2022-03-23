@@ -1,5 +1,7 @@
 package co.com.edu.uco.ing.software.project.transports.domain.model;
 
+import java.time.LocalDate;
+
 import static co.com.edu.uco.ing.software.project.transports.domain.util.Message.REQUIRED_FIELD_NULL_EMPTY;
 import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.emailValidator;
 import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.validateObjectRequired;
@@ -15,6 +17,7 @@ public class Owner {
   private int document;
   private String documentType;
   private String firstName;
+  private LocalDate dateOfBirth;
 
   private Owner(int document, String documentType) {
     setDocument(document);

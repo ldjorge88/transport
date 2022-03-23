@@ -7,12 +7,10 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DocumentType {
+public class LicensePlate {
 
   @NonNull
-  private String code;
-  @NonNull
-  private String name;
+  private String codePlate;
   private String description;
 
 }

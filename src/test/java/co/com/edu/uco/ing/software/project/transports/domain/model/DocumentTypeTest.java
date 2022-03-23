@@ -3,57 +3,53 @@ package co.com.edu.uco.ing.software.project.transports.domain.model;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static co.com.edu.uco.ing.software.project.transports.domain.util.Constant.*;
+
 public class DocumentTypeTest {
 
   @Test
   void validateSuccesfulCreation() {
-    //arrange
-    String code = "CC";
-    String name = "Cédula de ciudadania";
-    String description = "tipo de documento de identificación Colombiana";
-
     //act
-    DocumentType documentType = new DocumentType();
-    documentType.setCode(code);
-    documentType.setName(name);
-    documentType.setDescription(description);
+    DocumentType documentType = new DocumentTypeBuilder()
+        .setDescription("Tipo de documento de prueba")
+        .build();
 
     //assert
-    Assertions.assertEquals("CC", documentType.getCode());
-    Assertions.assertEquals("Cédula de ciudadania", documentType.getName());
-    Assertions.assertEquals("tipo de documento de identificación Colombiana", documentType.getDescription());
+    Assertions.assertEquals(CODE_DOCUMENT_TYPE, documentType.getCode());
+    Assertions.assertEquals(NAME_DOCUMENT_TYPE, documentType.getName());
+    Assertions.assertNotNull(DESCRIPTION_DOCUMENT_TYPE, documentType.getDescription());
+  }
+
+  @Test
+  void setDataAfterCreation() {
+    //act
+    DocumentType documentType = new DocumentType();
+    documentType.setCode("TI");
+    documentType.setName("Tarjeta de identidad");
+    documentType.setDescription("Tipo de documento para prueba");
+
+    //assert
+    Assertions.assertNotNull(CODE_DOCUMENT_TYPE, documentType.getCode());
+    Assertions.assertNotNull(NAME_DOCUMENT_TYPE, documentType.getName());
+    Assertions.assertNotNull(DESCRIPTION_DOCUMENT_TYPE, documentType.getDescription());
   }
 
   @Test
   void validateNullCodeRequiredFields() {
-    //arrange
-    String code = null;
-    String name = "Cédula de ciudadania";
-    String description = "tipo de documento de identificación Colombiana";
-
     //act - assert
-    Assertions.assertEquals("code is marked non-null but is null", Assertions.assertThrows(NullPointerException.class, () ->
-        DocumentType.builder()
-            .code(code)
-            .name(name)
-            .description(description)
+    Assertions.assertEquals(CODE_IS_NULL_VALUE, Assertions.assertThrows(NullPointerException.class, () ->
+        new DocumentTypeBuilder()
+            .setCode(null)
             .build()
     ).getMessage());
   }
 
   @Test
   void validateNullNameRequiredFields() {
-    //arrange
-    String code = "CC";
-    String name = null;
-    String description = "tipo de documento de identificación Colombiana";
-
     //act - assert
-    Assertions.assertEquals("name is marked non-null but is null", Assertions.assertThrows(NullPointerException.class, () ->
-        DocumentType.builder()
-            .code(code)
-            .name(name)
-            .description(description)
+    Assertions.assertEquals(NAME_IS_NULL_VALUE, Assertions.assertThrows(NullPointerException.class, () ->
+        new DocumentTypeBuilder()
+            .setName(null)
             .build()
     ).getMessage());
   }

@@ -3,24 +3,19 @@ package co.com.edu.uco.ing.software.project.transports.infrastructure.adapter.en
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Entity
-@Table(name = "document_type")
-public class DocumentTypeEntity implements Serializable {
+@Table(name = "license_plate")
+@NoArgsConstructor
+@AllArgsConstructor
+public class LicensePlateEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long id;
   @NonNull
-  private String code;
-  @NonNull
-  private String name;
+  private String codePlate;
   private String description;
 
 }
-

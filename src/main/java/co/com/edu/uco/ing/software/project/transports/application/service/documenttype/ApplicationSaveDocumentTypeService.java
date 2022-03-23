@@ -15,9 +15,9 @@ public class ApplicationSaveDocumentTypeService {
 
   private final SaveDocumentTypeService documentTypeSaveService;
 
-  public void execute(DocumentTypeDTO documentTypeDTO) {
+  public Long execute(DocumentTypeDTO documentTypeDTO) {
     DocumentType documentType = DOCUMENT_TYPE_MAPPER.documentTypeDTOToDocumentType(documentTypeDTO);
-      documentTypeSaveService.create(documentType);
+      return documentTypeSaveService.create(documentType);
   }
 
 }

@@ -22,8 +22,8 @@ public class DocumentTypeController {
   }
 
   @PostMapping
-  public void create(@RequestBody DocumentTypeDTO documentTypeDTO) {
-    applicationSaveDocumentTypeService.execute(documentTypeDTO);
+  public Long create(@RequestBody DocumentTypeDTO documentTypeDTO) {
+    return applicationSaveDocumentTypeService.execute(documentTypeDTO);
   }
 
 }
