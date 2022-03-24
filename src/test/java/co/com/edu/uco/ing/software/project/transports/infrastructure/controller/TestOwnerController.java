@@ -41,15 +41,15 @@ public class TestOwnerController {
   @Autowired
   private MockMvc mocMvc;
 
-  //@Test
-  //@DisplayName("crear y validar")
+  @Test
+  @DisplayName("crear y validar")
   void testCreate() throws Exception {
     //arragne
     var dto = new TestOwnerDataBuilder().build();
     create(dto);
   }
 
-  public void create(OwnerDTO ownerDTO) throws Exception{
+  public void create(OwnerDTO ownerDTO) throws Exception {
 
     // act
     var result = mocMvc.perform(MockMvcRequestBuilders.post("/api-owner")
@@ -72,8 +72,8 @@ public class TestOwnerController {
     Assertions.assertEquals(ownerDTO.getLastName(), owner.getLastName());
   }
 
-  //@Test
-  //@DisplayName("Debe listar las personas luego de crearlas")
+  @Test
+  @DisplayName("Debe listar las personas luego de crearlas")
   void testList() throws Exception {
 
     var dto = new TestOwnerDataBuilder().build();
@@ -83,7 +83,6 @@ public class TestOwnerController {
     mocMvc.perform(get("/api-owners")
             .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
-        //.andReturn().getResponse().getContentAsString()
         .andExpect(jsonPath("$[0].firstName", is(dto.getFirstName())))
         .andExpect(jsonPath("$[0].lastName", is(dto.getLastName())));
   }
