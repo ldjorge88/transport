@@ -19,6 +19,7 @@ public interface DocumentTypeMapper {
 
   List<DocumentTypeDTO> documentTypeDTOToListDocumentTypeList(List<DocumentType> documentType);
 
+
   // TODO profe esto debería de estar en la capa de infraestrucctura por visibilidad de capas ?
   DocumentTypeEntity documentTypeToDocumentTypeEntity(DocumentType documentType);
 
