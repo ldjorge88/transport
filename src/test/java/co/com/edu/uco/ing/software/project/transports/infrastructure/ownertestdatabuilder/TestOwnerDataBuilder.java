@@ -13,6 +13,7 @@ public class TestOwnerDataBuilder {
   private String rut = "1233248";
   private String phone = "3217187437";
   private String licensePlate = "HOT435";
+  private String dateOfBirth = "01/02/1988";
 
   public TestOwnerDataBuilder() {
     this.document = 41342;
@@ -100,8 +101,17 @@ public class TestOwnerDataBuilder {
     return this;
   }
 
+  public String getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public TestOwnerDataBuilder setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+    return this;
+  }
+
   public OwnerDTO build() {
     return new OwnerDTO(document, documentType, firstName, lastName,
-        email, city, rut, phone, licensePlate);
+        email, city, rut, phone, licensePlate, dateOfBirth);
   }
 }

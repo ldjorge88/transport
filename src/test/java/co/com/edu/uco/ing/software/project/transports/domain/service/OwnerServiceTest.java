@@ -1,6 +1,5 @@
 package co.com.edu.uco.ing.software.project.transports.domain.service;
 
-import co.com.edu.uco.ing.software.project.transports.application.exception.TransportBadRequestException;
 import co.com.edu.uco.ing.software.project.transports.domain.model.Owner;
 import co.com.edu.uco.ing.software.project.transports.domain.port.OwnerRepository;
 import co.com.edu.uco.ing.software.project.transports.domain.service.owner.FindOwnerService;
@@ -25,7 +24,6 @@ public class OwnerServiceTest {
     String rut = "1233248";
     String phone = "3217187437";
     String licensePlate = "HOT435";
-    String dateOfBirth = "01/02/1988";
 
     //act
     Owner owner = Owner.ownerBuilder(document, documentType)
@@ -36,7 +34,6 @@ public class OwnerServiceTest {
         .setRut(rut)
         .setPhone(phone)
         .setLicensePlate(licensePlate)
-        .setDateOfBirth(dateOfBirth)
         .build();
 
     var ownerRepository = Mockito.mock(OwnerRepository.class);
@@ -62,7 +59,6 @@ public class OwnerServiceTest {
     String rut = "1233248";
     String phone = "3217187437";
     String licensePlate = "HOT435";
-    String dateOfBirth = "01/02/1988";
 
     //act
     Owner owner = Owner.ownerBuilder(document, documentType)
@@ -73,7 +69,6 @@ public class OwnerServiceTest {
         .setRut(rut)
         .setPhone(phone)
         .setLicensePlate(licensePlate)
-        .setDateOfBirth(dateOfBirth)
         .build();
 
     var ownerRepository = Mockito.mock(OwnerRepository.class);

@@ -11,11 +11,12 @@ public class OwnerDTO {
   private String rut;
   private String phone;
   private String licensePlate;
+  private String dateOfBirth;
 
   public OwnerDTO() {
   }
 
-  public OwnerDTO(int document, String documentType, String firstName, String lastName, String email, String city, String rut, String phone, String licensePlate) {
+  public OwnerDTO(int document, String documentType, String firstName, String lastName, String email, String city, String rut, String phone, String licensePlate, String dateOfBirth) {
     this.document = document;
     this.documentType = documentType;
     this.firstName = firstName;
@@ -25,6 +26,7 @@ public class OwnerDTO {
     this.rut = rut;
     this.phone = phone;
     this.licensePlate = licensePlate;
+    this.dateOfBirth = dateOfBirth;
   }
 
   public int getDocument() {
@@ -98,4 +100,5 @@ public class OwnerDTO {
   public void setLicensePlate(String licensePlate) {
     this.licensePlate = licensePlate;
   }
+
 }

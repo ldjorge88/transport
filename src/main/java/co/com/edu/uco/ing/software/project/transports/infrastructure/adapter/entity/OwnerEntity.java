@@ -33,22 +33,39 @@ public class OwnerEntity {
     this.rut = rut;
     this.phone = phone;
     this.licensePlate = licensePlate;
+
   }
 
   public Long getId() {
     return id;
   }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public int getDocument() {
     return document;
+  }
+
+  public void setDocument(int document) {
+    this.document = document;
   }
 
   public String getDocumentType() {
     return documentType;
   }
 
+  public void setDocumentType(String documentType) {
+    this.documentType = documentType;
+  }
+
   public String getFirstName() {
     return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
   public String getLastName() {
@@ -75,19 +92,4 @@ public class OwnerEntity {
     return licensePlate;
   }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public void setDocument(int document) {
-    this.document = document;
-  }
-
-  public void setDocumentType(String documentType) {
-    this.documentType = documentType;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
 }

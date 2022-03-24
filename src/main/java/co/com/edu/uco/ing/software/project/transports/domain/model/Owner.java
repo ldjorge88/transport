@@ -14,7 +14,6 @@ public class Owner {
   private int document;
   private String documentType;
   private String firstName;
-  private String dateOfBirth;
 
   private Owner(int document, String documentType) {
     setDocument(document);
@@ -29,8 +28,6 @@ public class Owner {
     validateObjectRequired(owner.lastName, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.email, REQUIRED_FIELD_NULL_EMPTY);
     emailValidator(owner.email);
-    stringValidator(owner.dateOfBirth);
-    ofLegalAge(owner.dateOfBirth);
     validateObjectRequired(owner.city, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.rut, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.phone, REQUIRED_FIELD_NULL_EMPTY);
@@ -81,7 +78,7 @@ public class Owner {
   }
 
   public Owner setLastName(String lastName) {
-    validateObjectRequired(lastName, REQUIRED_FIELD_NULL_EMPTY);
+    //validateObjectRequired(lastName, REQUIRED_FIELD_NULL_EMPTY);
     this.lastName = lastName;
     return this;
   }
@@ -137,14 +134,9 @@ public class Owner {
     return this;
   }
 
-  public String getDateOfBirth() {
-    return dateOfBirth;
-  }
-
   public Owner setDateOfBirth(String dateOfBirth) {
     stringValidator(dateOfBirth);
     ofLegalAge(dateOfBirth);
-    this.dateOfBirth = dateOfBirth;
     return this;
   }
 
