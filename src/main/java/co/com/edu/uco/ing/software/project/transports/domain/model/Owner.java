@@ -1,10 +1,7 @@
 package co.com.edu.uco.ing.software.project.transports.domain.model;
 
-import java.time.LocalDate;
-
 import static co.com.edu.uco.ing.software.project.transports.domain.util.Message.REQUIRED_FIELD_NULL_EMPTY;
-import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.emailValidator;
-import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.validateObjectRequired;
+import static co.com.edu.uco.ing.software.project.transports.domain.util.RulesValidator.*;
 
 public class Owner {
 
@@ -17,7 +14,7 @@ public class Owner {
   private int document;
   private String documentType;
   private String firstName;
-  private LocalDate dateOfBirth;
+  private String dateOfBirth;
 
   private Owner(int document, String documentType) {
     setDocument(document);
@@ -31,6 +28,9 @@ public class Owner {
     validateObjectRequired(owner.firstName, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.lastName, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.email, REQUIRED_FIELD_NULL_EMPTY);
+    emailValidator(owner.email);
+    stringValidator(owner.dateOfBirth);
+    ofLegalAge(owner.dateOfBirth);
     validateObjectRequired(owner.city, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.rut, REQUIRED_FIELD_NULL_EMPTY);
     validateObjectRequired(owner.phone, REQUIRED_FIELD_NULL_EMPTY);
@@ -134,6 +134,17 @@ public class Owner {
   public Owner setLicensePlate(String licensePlate) {
     validateObjectRequired(licensePlate, REQUIRED_FIELD_NULL_EMPTY);
     this.licensePlate = licensePlate;
+    return this;
+  }
+
+  public String getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public Owner setDateOfBirth(String dateOfBirth) {
+    stringValidator(dateOfBirth);
+    ofLegalAge(dateOfBirth);
+    this.dateOfBirth = dateOfBirth;
     return this;
   }
 

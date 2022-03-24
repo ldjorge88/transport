@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SaveOwnerService {
 
-  private static final String EXISTS_MESSAGE = "Ya existe el propietario con los datos ingresados";
+  private static final String EXISTS_MESSAGE = "existing record with the parameters entered";
   private final OwnerRepository ownerRepository;
 
   public SaveOwnerService(OwnerRepository ownerRepository) {

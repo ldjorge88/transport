@@ -19,6 +19,7 @@ public class OwnerTest {
     String rut = "1233248";
     String phone = "3217187437";
     String licensePlate = "HOT435";
+    String dateOfBirth = "01/02/1988";
     //act
     Owner owner = Owner.ownerBuilder(document, documentType)
         .setFirstName(firstName)
@@ -28,6 +29,7 @@ public class OwnerTest {
         .setRut(rut)
         .setPhone(phone)
         .setLicensePlate(licensePlate)
+        .setDateOfBirth(dateOfBirth)
         .build();
 
     //assert
@@ -40,6 +42,7 @@ public class OwnerTest {
     Assertions.assertEquals("1233248", owner.getRut());
     Assertions.assertEquals("3217187437", owner.getPhone());
     Assertions.assertEquals("HOT435", owner.getLicensePlate());
+    Assertions.assertEquals("01/02/1988", owner.getDateOfBirth());
 
   }
 
