@@ -80,7 +80,7 @@ public class TestOwnerController {
 
     create(dto);
 
-    mocMvc.perform(get("/api-owners")
+    mocMvc.perform(get("/api-owner")
             .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$[0].firstName", is(dto.getFirstName())))
